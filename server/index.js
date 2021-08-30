@@ -11,12 +11,12 @@ const port = process.env.PORT || 5000;
 io.on("connection", (socket) => {
   console.log("user connected");
   socket.on("chat", (msg) => {
-    console.log(msg);
+    socket.broadcast.emit("recieved", msg);
   });
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });
 });
 server.listen(port, () => {
-  console.log("server started at", port);
+  console.log("server running at", port);
 });
