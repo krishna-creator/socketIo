@@ -15,10 +15,12 @@
 
 .name {
   font-size: 1em;
+  padding: 0.2em;
 }
 .name_submit {
   font-size: 1em;
   background: #2980b9;
   margin-left: 1em;
   border: none;
+  padding: 0.2em;
 }

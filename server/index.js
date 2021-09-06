@@ -11,6 +11,9 @@ const port = process.env.PORT || 5000;
 io.on("connection", (socket) => {
   console.log("user connected");
   socket.on("chat", (msg) => {
+    let date = new Date();
+    let time = date.getHours() + ":" + date.getMinutes();
+    msg.time = time;
     socket.broadcast.emit("recieved", msg);
   });
   socket.on("disconnect", () => {

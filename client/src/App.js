@@ -4,14 +4,15 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [name, setName] = useState("");
+  const [status, setStatus] = useState(false);
+
+  if (name !== "" && status) {
+    return <Room name={name} />;
+  }
 
   const registerName = (e) => {
     e.preventDefault();
-    setName(e.target.value);
-    if (name !== "") {
-      console.log(name);
-      return <Room n="hi" />;
-    }
+    setStatus(true);
   };
 
   return (
@@ -23,6 +24,10 @@ function App() {
             className="name"
             type="text"
             name="name"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
             placeholder="Enter your name"
           />
           <button className="name_submit" type="submit">
