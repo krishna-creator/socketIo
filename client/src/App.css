@@ -13,15 +13,12 @@
   color: white;
 }
 
-input {
+.name {
   font-size: 1em;
 }
-button {
+.name_submit {
   font-size: 1em;
   background: #2980b9;
   margin-left: 1em;
   border: none;
-}
-p {
-  margin: 0;
 }
