@@ -6,7 +6,7 @@ let socket;
 function Room(props) {
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
-  const scrollBottom = useRef();
+  const scrollB = useRef();
   useEffect(() => {
     socket = io.connect("http://localhost:5000/");
 
@@ -15,9 +15,10 @@ function Room(props) {
     };
   }, []);
   useEffect(() => {
-    const div = scrollBottom.current;
+    const div = scrollB.current;
     div.scrollTop = div.scrollHeight;
-  }, []);
+    console.log(div.scrollTop);
+  });
   const sendchat = (e) => {
     e.preventDefault();
     if (/\S/.test(message)) {
@@ -36,7 +37,7 @@ function Room(props) {
     <div className="room">
       <h1 className="room-header">Chit-cHat</h1>
       <div className="room_chat_box">
-        <div className="room_chat_messages" ref={scrollBottom}>
+        <div className="room_chat_messages" ref={scrollB}>
           {chat.map((msg, index) => {
             return (
               <div className="room_chat_message" key={index}>
